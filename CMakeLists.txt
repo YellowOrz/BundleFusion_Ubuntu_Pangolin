@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(BundleFusion)
 
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE Release)     # If want to debug, this line must be commented out; if want to save mesh, must have this line!!!
 # https://blog.csdn.net/qq_37425813/article/details/120518043
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -fpermissive -pthread -lrt -fPIC")
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
