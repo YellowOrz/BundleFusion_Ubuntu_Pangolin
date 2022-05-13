@@ -94,7 +94,7 @@ s_remappingDepthDiscontinuityThresLin	 = 0.01f;
 
 s_bUseCameraCalibration = false;
 
-s_marchingCubesMaxNumTriangles = 4000000; // max buffer size for marching cube
+s_marchingCubesMaxNumTriangles = 6000000; // max buffer size for marching cube
 
 //streaming parameters (streaming disabled for BundleFusion)
 s_streamingEnabled = false;

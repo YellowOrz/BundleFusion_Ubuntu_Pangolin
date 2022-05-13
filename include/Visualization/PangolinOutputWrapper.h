@@ -1,6 +1,7 @@
 #pragma once
 
-#include <Output3DWrapper.h>
+// https://github.com/FangGet/BundleFusion_Ubuntu_Pangolin/issues/3
+#include <Visualization/Output3DWrapper.h>
 #include <pangolin/pangolin.h>
 #include <pangolin/gl/glcuda.h>
 #include <pangolin/gl/glvbo.h>

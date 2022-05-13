@@ -1,4 +1,5 @@
-#include <PangolinOutputWrapper.h>
+// https://github.com/FangGet/BundleFusion_Ubuntu_Pangolin/issues/3
+#include <Visualization/PangolinOutputWrapper.h>
 
 #include <cuda_runtime.h>
 #include <cuda_gl_interop.h>
@@ -329,7 +330,8 @@ void PangolinOutputWrapper::run()
         {
             d_color.Activate();
             glColor4f ( 1.0f,1.0f,1.0f,1.0f );
-            tex_color.RenderToViewportFlipY();
+            tex_color.RenderToViewport();
+//            tex_color.RenderToViewportFlipY();
         }
 
         // update parameters
