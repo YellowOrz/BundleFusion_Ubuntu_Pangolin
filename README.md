@@ -1,3 +1,13 @@
+
+- Environment:
+  - freeimage: `sudo apt install libfreeimage-dev`
+  - Pangolin: version 0.8
+  - CUDA: version 11.6
+  - OpenCV: version 4.5.5, with opencv_contrib
+
+---- 
+Origin README
+
 # BundleFusion_Ubuntu_Pangolin
 This is an ubuntu porting project for [https://github.com/niessner/BundleFusion](https://github.com/niessner/BundleFusion), a GPU-based 3D reconstruction method. 
 <br>
