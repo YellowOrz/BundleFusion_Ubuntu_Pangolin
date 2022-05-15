@@ -4,6 +4,26 @@
   - Pangolin: version 0.8
   - CUDA: version 11.6
   - OpenCV: version 4.5.5, with opencv_contrib
+- Note:
+  - If you want to use different dataset, you need first crop the image size to a multiple of 4
+    - use `datasets_convert.py` to convert ETH3D-type datasets into what BundleFusion needs
+    - BundleFusion will horizontal flip rgb and depth images, so that I flip rgb and depth images horizontally beforehand in `datasets_convert.py`
+    - I cannot find where to specify the depth scale, so that I convert origin depth scale (5000 for ETH3D datasets) to 1000 in `datasets_convert.py`  
+    - If you do not change the image size, you might get error message "ERROR: image width must be a multiple of 4" from SiftGPU.cpp 
+    - Scaling is not recommended, because I feel that the reconstructed model will also scale after images are scaled
+    - After cropping images, $c_x$ and $c_y$ of camera intrinsic should be changed:
+      - suppose, the image size before and after cropping is (Ho, Wo) and (Hn, Wn), then updated $c_x$ and $c_y$ are
+        $$$ c_x' = c_x - (Wo-Wn)/2 $$$
+        $$$ c_y' = c_y - (Ho-Hn)/2 $$$
+      - $f_x$ and $f_y$ are unchanged
+    - Change zParametersBundlingDefault.txt:
+      - line 44~47, to a quarter of the image size
+    - Change zParametersDefault.txt
+      - line 114-115, to the image size
+      - line 118-121, to the updated camera intrinsic (depth and rgb are same)
+  - If you want to debug, e.g. break point, you must comment out `set(CMAKE_BUILD_TYPE Release)` in CMakeLists.txt (line 4)
+  - If you want to save model, you **cannot** comment out `set(CMAKE_BUILD_TYPE Release)` in CMakeLists.txt (line 4)
+    
 
 ---- 
 Origin README
